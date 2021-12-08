@@ -36,7 +36,10 @@ export default {
       },
     };
   },
-  created: function () {},
+  created: function () {
+    // if user is not logged in, reroute to login page
+    this.isLoggedIn();
+  },
   methods: {
     showStudent: function () {
       // axios.get("/students").then((response) => {
@@ -49,6 +52,13 @@ export default {
       axios.patch("/students/" + student.id, student).then((response) => {
         console.log("Success", response.data);
       });
+    },
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        this.$router.push("/login");
+      }
     },
   },
 };
