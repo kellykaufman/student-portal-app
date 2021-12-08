@@ -33,8 +33,11 @@ export default {
       axios
         .post("/sessions", this.newSessionParams)
         .then((response) => {
+          // add jwt to default header for http request
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+          // set jwt to browser local storage
           localStorage.setItem("jwt", response.data.jwt);
+          // redirect to home
           this.$router.push("/");
         })
         .catch((error) => {
