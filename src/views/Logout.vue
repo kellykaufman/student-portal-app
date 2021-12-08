@@ -12,7 +12,7 @@ export default {
     // remove jwt from browser local storage
     localStorage.removeItem("jwt");
     // redirect to home
-    this.$router.push("/");
+    this.$router.push("/login");
   },
 };
 </script>

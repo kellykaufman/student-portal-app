@@ -38,7 +38,7 @@ export default {
           // set jwt to browser local storage
           localStorage.setItem("jwt", response.data.jwt);
           // redirect to home
-          this.$router.push("/");
+          this.$router.push("/dashboard");
         })
         .catch((error) => {
           console.log(error.response);
