@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-     
-      <router-link to="/dashboard">Dashboard</router-link>   
-      |   
+      <router-link to="/dashboard">Dashboard</router-link>
+      |
       <router-link to="/resumeshow">My Resume</router-link>
       |
       <router-link to="/logout">Logout</router-link>
