@@ -3,6 +3,11 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import ResumesEdit from "../views/ResumesEdit.vue";
 
+import Dashboard from "../views/Dashboard.vue";
+import Login from "../views/Login.vue";
+import Logout from "../views/Logout.vue";
+import ResumeShow from "../views/ResumeShow.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -10,6 +15,18 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  { path: "/login", name: "login", component: Login },
+  { path: "/logout", name: "logout", component: Logout },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
+  },
+  {
+    path: "/resumeshow/:id",
+    name: "ResumeShow",
+    component: ResumeShow,
   },
   {
     path: "/resumes/edit",

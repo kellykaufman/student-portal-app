@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
+
+      <router-link to="/dashboard">Dashboard</router-link>   
+      |   
+      <router-link to="/resumeshow">My Resume</router-link>
       |
-      <router-link to="/about">About</router-link>
+      <router-link to="/logout">Logout</router-link>
     </div>
     <router-view />
   </div>
@@ -31,3 +34,18 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  data: function () {},
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>
