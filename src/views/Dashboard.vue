@@ -28,7 +28,7 @@ export default {
     dashboardStudent: function () {
       axios.get("/students/" + this.$route.params.id).then((response) => {
         this.student = response.data;
-        console.log("all students", this.student);
+        // console.log("all students", this.student);
       });
     },
   },
