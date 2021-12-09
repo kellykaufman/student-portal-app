@@ -1,6 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- display pages only if user is logged in -->
+      <!-- <div v-if="isLoggedIn()"> -->
+      <!-- |
+        <router-link to="/login">Login</router-link> -->
+      <!-- display pages only if user is logged in -->
+      <!-- <div v-if="isLoggedIn()"> -->
       <router-link to="/dashboard">Dashboard</router-link>
       |
       <router-link to="/resumeshow">My Resume</router-link>
@@ -36,9 +42,6 @@
 
 <script>
 export default {
-  data: function () {
-    return {};
-  },
   methods: {
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
