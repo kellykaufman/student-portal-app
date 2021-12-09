@@ -4,19 +4,34 @@
     <button>Update Resume Details</button>
     <h2>My Experiences</h2>
     <div v-for="experience in studentExperiences" :key="experience.id">
-      <p>{{ experience }}</p>
+      <p>Job Title: {{ experience.job_title }}</p>
+      <p>Company: {{ experience.company }}</p>
+      <p>Details: {{ experience.details }}</p>
+      <p>Start Date: {{ experience.start_date }}</p>
+      <p>End Date: {{ experience.end_date }}</p>
+      <hr />
     </div>
     <h2>My Education</h2>
-    <div v-for="education in studentExperiences" :key="education.id">
-      <p>{{ education }}</p>
+    <div v-for="education in studentEducations" :key="education.id">
+      <p>Degree: {{ education.degree }}</p>
+      <p>University: {{ education.university }}</p>
+      <p>Details: {{ education.details }}</p>
+      <p>Start Date: {{ education.start_date }}</p>
+      <p>End Date: {{ education.end_date }}</p>
+      <hr />
     </div>
     <h2>My Skills</h2>
     <div v-for="skill in studentSkills" :key="skill.id">
-      <p>{{ skill }}</p>
+      <p>skill: {{ skill.skill }}</p>
     </div>
+    <hr />
     <h2>My Capstone</h2>
     <div v-for="capstone in studentCapstones" :key="capstone.id">
-      <p>{{ capstone }}</p>
+      <p>name: {{ capstone.name }}</p>
+      <p>description: {{ capstone.description }}</p>
+      <p>link: {{ capstone.URL }}</p>
+      <img src="capstone.screenshot" alt="capstone screenshot" />
+      <hr />
     </div>
   </div>
 </template>
