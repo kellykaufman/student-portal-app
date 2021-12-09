@@ -2,7 +2,6 @@
   <div class="home">
     <p>{{ message }}</p>
 
-    <button v-on:click="showStudent(student)">Dashboard</button>
     <dialog id="edit-student-info">
       <form method="dialog">
         <!-- <h1>Student Information:</h1>
