@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div id="nav">
-
       <router-link to="/dashboard">Dashboard</router-link>
       |
       <!-- display pages only if user is logged in -->
