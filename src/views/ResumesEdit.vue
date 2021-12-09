@@ -112,7 +112,7 @@ export default {
       currentEducationParams: {},
       currentSkillParams: {},
       currentCapstoneParams: {},
-      error: [],
+      errors: [],
     };
   },
   created: function () {
