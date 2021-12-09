@@ -1,19 +1,6 @@
 <template>
   <div class="home">
-
     <p>{{ message }}</p>
-
-    <button v-on:click="showStudent(student)">Dashboard</button>
-    <dialog id="edit-student-info">
-      <form method="dialog">
-        <!-- <h1>Student Information:</h1>
-        <p>
-          First Name: Jarret Last Name: Nachtigal Email: jn@example.com Phone
-          Number: 123-456-789 Short Bio: Jarret is the best! Linkedin Url:
-          linkedin.com/in/jarret-nachtigal-42a849220 Twitter Handle: N/A Website
-          Url:https://github.com/JarretNachtigal online_resume_url: N/A
-          github_url: https://github.com/JarretNachtigal photo: jarret.png
-        </p> -->
 
     <img :src="student.photo" :alt="student.first_name" />
     <h1>{{ student.first_name }} {{ student.last_name }}</h1>
