@@ -4,18 +4,7 @@
 
     <img :src="student.photo" :alt="student.first_name" />
     <h1>{{ student.first_name }} {{ student.last_name }}</h1>
-    <button v-on:click="showStudent(student)">Contact Info</button>
-    <dialog id="edit-student-info">
-      <form method="dialog">
-        <h1>Contact Info:</h1>
-        <h3>Email:</h3>
-        <p>{{ student.email }}</p>
-        <h3>Phone Number:</h3>
-        <p>{{ student.phone_number }}</p>
 
-        <button>close</button>
-      </form>
-    </dialog>
     <h2>About</h2>
     <p>{{ student.short_bio }}</p>
     <h2>Experience</h2>

@@ -1,21 +1,14 @@
 <template>
   <div class="students-dashboard">
-    <h1>{{ student.first_name + " " + student.last_name }}</h1>
+    <h1>{{ student.first_name }} {{ student.last_name }}</h1>
     <p>{{ message }}</p>
-
-    <button v-on:click="dashboardStudent(student)">Dashboard</button>
-    <dialog id="display student resume and capstone">
-      <form method="dialog">
-        <button>close</button>
-      </form>
-    </dialog>
   </div>
 </template>
 
 <style></style>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
   data: function () {
     return {
@@ -23,10 +16,15 @@ export default {
       student: {},
     };
   },
-  created: function () {},
+  created: function () {
+    this.dashboardStudent();
+  },
   methods: {
     dashboardStudent: function () {
-      // document.querySelector("#edit-student-info").dashboardModal();
+      axios.get("/students/" + this.$route.params.id).then((response) => {
+        this.student = response.data;
+        console.log("all students", this.student);
+      });
     },
   },
 };
