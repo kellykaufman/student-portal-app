@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
+
+      <router-link to="/dashboard">Dashboard</router-link>
+      |
       <!-- display pages only if user is logged in -->
       <!-- <div v-if="isLoggedIn()"> -->
+
       <router-link to="/">Home</router-link>
       |
       <router-link to="/about">About</router-link>
