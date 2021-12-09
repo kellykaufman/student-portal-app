@@ -116,7 +116,7 @@ export default {
     };
   },
   created: function () {
-    axios.get(`/experience/${this.$route.params.id}`).then((response) => {
+    axios.get(`/experiences/${this.$route.params.id}`).then((response) => {
       this.currentExperienceParams = response.data;
     });
     axios.get(`/education/${this.$route.params.id}`).then((response) => {
