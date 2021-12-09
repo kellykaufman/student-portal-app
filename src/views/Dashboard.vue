@@ -1,8 +1,6 @@
 <template>
   <div class="students-dashboard">
-    <h1>
-      {{ student.photo }} {{ student.first_name }} {{ student.last_name }}
-    </h1>
+    <h1>{{ student.photo }} {{ student.first_name }} {{ student.last_name }}</h1>
     <p>{{ student.email }} {{ student.phone_number }}</p>
     <p>{{ student.short_bio }}</p>
     <p>{{ student.linkedin }} {{ student.github }}</p>

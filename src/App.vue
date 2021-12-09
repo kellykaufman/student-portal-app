@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/dashboard">Dashboard</router-link>
       <!-- display pages only if user is logged in -->
       <!-- <div v-if="isLoggedIn()"> -->
       <!-- |
@@ -48,7 +47,9 @@
 
 <script>
 export default {
+  created: function () {},
   data: function () {},
+  return: {},
   methods: {
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
