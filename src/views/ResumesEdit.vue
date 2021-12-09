@@ -132,7 +132,7 @@ export default {
   methods: {
     updateExperience: function () {
       axios
-        .patch(`/experience/${this.$route.params.id}`)
+        .patch(`/experiences/${this.$route.params.id}`)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
@@ -140,7 +140,7 @@ export default {
     },
     updateEducation: function () {
       axios
-        .patch(`/experience/${this.$route.params.id}`)
+        .patch(`/educations/${this.$route.params.id}`)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
@@ -148,7 +148,7 @@ export default {
     },
     updateSkills: function () {
       axios
-        .patch(`/experience/${this.$route.params.id}`)
+        .patch(`/skills/${this.$route.params.id}`)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
@@ -156,7 +156,7 @@ export default {
     },
     updateCapstone: function () {
       axios
-        .patch(`/experience/${this.$route.params.id}`)
+        .patch(`/capstones/${this.$route.params.id}`)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
@@ -164,22 +164,22 @@ export default {
     },
   },
   deleteExperience: function () {
-    axios.delete(`/experience/${this.$route.params.id}`).then((response) => {
+    axios.delete(`/experiences/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
     });
   },
   deleteEducation: function () {
-    axios.delete(`/experience/${this.$route.params.id}`).then((response) => {
+    axios.delete(`/educations/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
     });
   },
   deleteSkill: function () {
-    axios.delete(`/experience/${this.$route.params.id}`).then((response) => {
+    axios.delete(`/skills/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
     });
   },
   deleteCapstone: function () {
-    axios.delete(`/experience/${this.$route.params.id}`).then((response) => {
+    axios.delete(`/capstones/${this.$route.params.id}`).then((response) => {
       console.log(response.data);
     });
   },
