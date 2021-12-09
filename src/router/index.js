@@ -5,7 +5,7 @@ import Home from "../views/Home.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-
+import ResumeShow from "../views/ResumeShow.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +21,11 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
+  },
+  {
+    path: "/resumeshow/:id",
+    name: "ResumeShow",
+    component: ResumeShow,
   },
   {
     path: "/about",
