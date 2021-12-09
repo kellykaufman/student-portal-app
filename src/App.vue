@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-
+     
       <router-link to="/dashboard">Dashboard</router-link>   
       |   
       <router-link to="/resumeshow">My Resume</router-link>
@@ -37,7 +37,9 @@
 
 <script>
 export default {
-  data: function () {},
+  data: function () {
+    return {};
+  },
   methods: {
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
