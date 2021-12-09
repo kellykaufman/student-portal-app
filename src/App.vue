@@ -9,14 +9,9 @@
       <!-- <div v-if="isLoggedIn()"> -->
       <router-link to="/dashboard">Dashboard</router-link>
       |
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link>
-      |
       <router-link to="/resumeshow">My Resume</router-link>
       |
       <router-link to="/logout">Logout</router-link>
-      <!-- </div> -->
     </div>
     <router-view />
   </div>
@@ -47,9 +42,6 @@
 
 <script>
 export default {
-  created: function () {},
-  data: function () {},
-  return: {},
   methods: {
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {

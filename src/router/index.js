@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import ResumesEdit from "../views/ResumesEdit.vue";
 
 import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
@@ -26,6 +27,11 @@ const routes = [
     path: "/resumeshow/:id",
     name: "ResumeShow",
     component: ResumeShow,
+  },
+  {
+    path: "/resumes/edit",
+    name: "ResumesEdit",
+    component: ResumesEdit,
   },
   {
     path: "/about",
