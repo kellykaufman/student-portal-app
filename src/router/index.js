@@ -7,6 +7,7 @@ import Dashboard from "../views/Dashboard.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import ResumeShow from "../views/ResumeShow.vue";
+import StudentEdit from "../views/StudentEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,11 @@ const routes = [
     path: "/resumes/edit",
     name: "ResumesEdit",
     component: ResumesEdit,
+  },
+  {
+    path: "/studentedit",
+    name: "StudentEdit",
+    component: StudentEdit,
   },
   {
     path: "/about",
