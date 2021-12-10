@@ -1,6 +1,7 @@
 <template>
   <div class="students-dashboard">
     <img :src="student.photo" :alt="student.id" />
+
     <h1>{{ student.first_name }} {{ student.last_name }}</h1>
     <p>{{ student.email }}</p>
     <p>{{ student.phone_number }}</p>
