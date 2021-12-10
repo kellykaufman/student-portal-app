@@ -27,7 +27,7 @@ export default {
     dashboardStudent: function () {
       axios.get("/students/" + this.student_id).then((response) => {
         this.student = response.data;
-        // console.log("all students", this.student);
+        console.log("all students", this.student);
       });
     },
     isLoggedIn: function () {
