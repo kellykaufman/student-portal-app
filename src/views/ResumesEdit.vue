@@ -20,7 +20,7 @@
         </div>
         <div>
           <label>Company:</label>
-          <textarea name="input" cols="10" rows="1" v-model="experience.company"></textarea>
+          <textarea name="input" cols="20" rows="1" v-model="experience.company"></textarea>
         </div>
         <div>
           <label>Details:</label>
@@ -48,7 +48,7 @@
         </p>
         <p>
           <label>Company:</label>
-          <textarea name="input" cols="10" rows="1" v-model="currentExperience.company"></textarea>
+          <textarea name="input" cols="20" rows="1" v-model="currentExperience.company"></textarea>
         </p>
         <p>
           <label>Details:</label>
@@ -78,7 +78,7 @@
         </div>
         <div>
           <label>University:</label>
-          <textarea name="input" cols="10" rows="1" v-model="education.university_name"></textarea>
+          <textarea name="input" cols="20" rows="1" v-model="education.university_name"></textarea>
         </div>
         <div>
           <label>Details:</label>
@@ -106,7 +106,7 @@
         </p>
         <p>
           <label>University:</label>
-          <textarea name="input" cols="10" rows="1" v-model="currentEducation.university"></textarea>
+          <textarea name="input" cols="20" rows="1" v-model="currentEducation.university"></textarea>
         </p>
         <p>
           <label>Details:</label>
@@ -128,7 +128,7 @@
         </div>
         <input type="submit" value="Submit" />
       </form>
-      <button v-on="addSkills()">Add Skill</button>
+      <!-- <button v-on="addSkills()">Add Skill</button> -->
       <button v-on:click="deleteExperience()">Delete</button>
     </div>
     <dialog id="skill-details">
@@ -143,7 +143,7 @@
       </form>
     </dialog>
     <div v-for="capstone in currentCapstoneParams" :key="capstone.id">
-      <form v-on:submit.prevent="updateCapstone()">
+      <form v-on:submit.prevent="updateCapstone(capstone)">
         <h1>Editing Capstone</h1>
         <ul>
           <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -209,10 +209,12 @@ export default {
       currentSkill: {},
       currentCapstone: {},
       errors: [],
+      student_id: localStorage.getItem("student_id"),
     };
   },
   created: function () {
-    axios.get(`/students/${this.$route.params.id}`).then((response) => {
+    this.isLoggedIn();
+    axios.get("/students/" + this.student_id).then((response) => {
       this.currentExperienceParams = response.data.experiences;
       this.currentEducationParams = response.data.educations;
       this.currentSkillParams = response.data.skills;
@@ -223,7 +225,7 @@ export default {
   methods: {
     updateExperience: function () {
       axios
-        .patch(`/experiences/${this.$route.params.id}`)
+        .patch("/experiences/" + this.experience.id)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
@@ -231,7 +233,7 @@ export default {
     },
     updateEducation: function () {
       axios
-        .patch(`/education/${this.$route.params.id}`)
+        .patch("/education/" + this.education.id)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
@@ -239,76 +241,83 @@ export default {
     },
     updateSkills: function () {
       axios
-        .patch(`/skills/${this.$route.params.id}`)
+        .patch("/skills/" + this.skill.id)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
         .catch((error) => console.log(error.response));
     },
-    updateCapstone: function () {
+    updateCapstone: function (capstone) {
       axios
-        .patch(`/capstones/${this.$route.params.id}`)
+        .patch("/capstones/" + capstone.id)
         .then((response) => {
           this.$router.push(`/experience/${response.data.id}`);
         })
         .catch((error) => console.log(error.response));
     },
-  },
-  deleteExperience: function () {
-    axios.delete(`/experiences/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-    });
-  },
-  deleteEducation: function () {
-    axios.delete(`/education/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-    });
-  },
-  deleteSkill: function () {
-    axios.delete(`/skills/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-    });
-  },
-  deleteCapstone: function () {
-    axios.delete(`/capstones/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-    });
-  },
-  addExperience: function () {
-    document.querySelector("#experience-details").showModal();
-  },
-  createExperiennce: function (experience) {
-    this.currentExperience = experience;
-    axios.post("/experiences", this.currentExperience).then((response) => {
-      this.currentExperienceParams.push(response.data);
-    });
-  },
-  addEducation: function () {
-    document.querySelector("#education-details").showModal();
-  },
-  createEducation: function (education) {
-    this.currentEducation = education;
-    axios.post("/education", this.currentEducation).then((response) => {
-      this.currentEducationParams.push(response.data);
-    });
-  },
-  addSkill: function () {
-    document.querySelector("#skill-details").showModal();
-  },
-  createSkill: function (skill) {
-    this.currentSkill = skill;
-    axios.post("/skills", this.currentSkill).then((response) => {
-      this.currentSkillParams.push(response.data);
-    });
-  },
-  addCapstone: function () {
-    document.querySelector("#capstone-details").showModal();
-  },
-  createCapstone: function (capstone) {
-    this.currentCapstone = capstone;
-    axios.post("/capstones", this.currentCapstone).then((response) => {
-      this.currentCapstoneParams.push(response.data);
-    });
+    deleteExperience: function () {
+      axios.delete("/experiences/" + this.experience.id).then((response) => {
+        console.log(response.data);
+      });
+    },
+    deleteEducation: function () {
+      axios.delete("/educations/" + this.education.id).then((response) => {
+        console.log(response.data);
+      });
+    },
+    deleteSkill: function () {
+      axios.delete("/skills/" + this.skill.id).then((response) => {
+        console.log(response.data);
+      });
+    },
+    deleteCapstone: function () {
+      axios.delete("/capstones/" + this.capstone.id).then((response) => {
+        console.log(response.data);
+      });
+    },
+    addExperience: function () {
+      document.querySelector("#experience-details").showModal();
+    },
+    createExperiennce: function (experience) {
+      this.currentExperience = experience;
+      axios.post("/experiences", this.currentExperience).then((response) => {
+        this.currentExperienceParams.push(response.data);
+      });
+    },
+    addEducation: function () {
+      document.querySelector("#education-details").showModal();
+    },
+    createEducation: function (education) {
+      this.currentEducation = education;
+      axios.post("/education", this.currentEducation).then((response) => {
+        this.currentEducationParams.push(response.data);
+      });
+    },
+    addSkills: function () {
+      document.querySelector("#skill-details").showModal();
+    },
+    createSkill: function (skill) {
+      this.currentSkill = skill;
+      axios.post("/skills", this.currentSkill).then((response) => {
+        this.currentSkillParams.push(response.data);
+      });
+    },
+    addCapstone: function () {
+      document.querySelector("#capstone-details").showModal();
+    },
+    createCapstone: function (capstone) {
+      this.currentCapstone = capstone;
+      axios.post("/capstones", this.currentCapstone).then((response) => {
+        this.currentCapstoneParams.push(response.data);
+      });
+    },
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        this.$router.push("/login"); // commented out for now
+      }
+    },
   },
 };
 </script>
