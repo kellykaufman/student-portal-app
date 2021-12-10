@@ -81,6 +81,11 @@ export default {
         console.log("all students", this.student);
       });
     },
+    updateStudent: function () {
+      axios.patch("/students/" + this.student_id).then((response) => {
+        console.log("updated", response, this.student);
+      });
+    },
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
         return true;

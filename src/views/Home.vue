@@ -44,9 +44,10 @@ export default {
     },
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
+        this.$router.push("/dashboard");
         return true;
       } else {
-        // this.$router.push("/login");
+        this.$router.push("/login");
       }
     },
   },
