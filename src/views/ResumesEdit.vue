@@ -128,7 +128,7 @@
         </div>
         <input type="submit" value="Submit" />
       </form>
-      <!-- <button v-on="addSkills()">Add Skill</button> -->
+      <button v-on:click="addSkills()">Add Skill</button>
       <button v-on:click="deleteExperience()">Delete</button>
     </div>
     <dialog id="skill-details">
@@ -192,6 +192,7 @@
         <button>close</button>
       </form>
     </dialog>
+    <router-link to="/resumeshow"></router-link>
   </div>
 </template>
 
