@@ -19,6 +19,7 @@ export default {
   data: function () {
     return {
       student: {},
+      student_id: localStorage.getItem("student_id"),
     };
   },
   created: function () {
@@ -27,16 +28,16 @@ export default {
   },
   methods: {
     dashboardStudent: function () {
-      axios.get("/students/" + this.$route.params.id).then((response) => {
+      axios.get("/students/" + this.student_id).then((response) => {
         this.student = response.data;
-        // console.log("all students", this.student);
+        console.log("all students", this.student);
       });
     },
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
         return true;
       } else {
-        // this.$router.push("/login");
+        this.$router.push("/login");
       }
     },
   },

@@ -42,6 +42,8 @@ import axios from "axios";
 export default {
   created: function () {
     this.isLoggedIn();
+  },
+  mounted: function () {
     this.showStudent();
   },
   data: function () {
@@ -50,11 +52,12 @@ export default {
       studentSkills: [],
       studentEducations: [],
       studentCapstones: [],
+      student_id: localStorage.getItem("student_id"),
     };
   },
   methods: {
     showStudent: function () {
-      axios.get("/students/" + this.$route.params["id"]).then((response) => {
+      axios.get("/students/" + this.student_id).then((response) => {
         this.studentExperiences = response.data.experiences;
         this.studentSkills = response.data.skills;
         this.studentEducations = response.data.educations;
@@ -66,7 +69,7 @@ export default {
       if (localStorage.getItem("jwt")) {
         return true;
       } else {
-        // this.$router.push("/login"); // commented out for now
+        this.$router.push("/login"); // commented out for now
       }
     },
   },
