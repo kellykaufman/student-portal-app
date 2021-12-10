@@ -1,13 +1,15 @@
 <template>
   <div class="students-dashboard">
-    <img :src="student.photo" :alt="student.id" />
+    <img v-bind:src="student.photo" :alt="student.id" align="left" />
+
     <h1>{{ student.first_name }} {{ student.last_name }}</h1>
-    <p>{{ student.email }}</p>
-    <p>{{ student.phone_number }}</p>
-    <p>{{ student.short_bio }}</p>
-    <p>{{ student.linkedin }}</p>
-    <p>{{ student.github }}</p>
-    <p>{{ student.website }}</p>
+    <p><b>Email:</b> {{ student.email }}</p>
+    <p><b>Phone Number:</b> {{ student.phone_number }}</p>
+    <p><b>Short Bio:</b> {{ student.short_bio }}</p>
+    <p><b>Linkedin:</b> {{ student.linkedin }}</p>
+    <p><b>Github:</b> {{ student.github }}</p>
+    <p><b>Website:</b> {{ student.website }}</p>
+    <p><b>Twitter:</b> {{ student.twitter }}</p>
   </div>
 </template>
 
