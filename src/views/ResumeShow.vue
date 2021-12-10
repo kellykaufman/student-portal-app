@@ -1,7 +1,7 @@
 <template>
   <div class="resumeshow">
     <h1>My Resume</h1>
-    <button>Update Resume Details</button>
+    <button v-on:click="updateResume()">Update Resume Details</button>
     <h2>My Experiences</h2>
     <div v-for="experience in studentExperiences" :key="experience.id">
       <p>Job Title: {{ experience.job_title }}</p>
@@ -64,6 +64,9 @@ export default {
         this.studentCapstones = response.data.capstones;
         console.log("Success", response.data);
       });
+    },
+    updateResume: function () {
+      this.$router.push("/resumeedit");
     },
     isLoggedIn: function () {
       if (localStorage.getItem("jwt")) {
