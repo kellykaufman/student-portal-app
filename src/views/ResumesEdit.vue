@@ -212,17 +212,12 @@ export default {
     };
   },
   created: function () {
-    axios.get(`/experiences/${this.$route.params.id}`).then((response) => {
-      this.currentExperienceParams = response.data;
-    });
-    axios.get(`/education/${this.$route.params.id}`).then((response) => {
-      this.currentExperienceParams = response.data;
-    });
-    axios.get(`/skills/${this.$route.params.id}`).then((response) => {
-      this.currentExperienceParams = response.data;
-    });
-    axios.get(`/capstones/${this.$route.params.id}`).then((response) => {
-      this.currentExperienceParams = response.data;
+    axios.get(`/students/${this.$route.params.id}`).then((response) => {
+      this.currentExperienceParams = response.data.experience;
+      this.currentEducationParams = response.data.education;
+      this.currentSkillParams = response.data.skill;
+      this.currentCapstoneParams = response.data.capstone;
+      console.log("Here you go", response.data);
     });
   },
   methods: {
