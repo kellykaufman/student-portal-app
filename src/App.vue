@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!-- <div v-if="isLoggedIn()"> -->
-      <router-link to="/dashboard">Dashboard</router-link>
-      |
-      <router-link to="/resumeshow">My Resume</router-link>
-      |
-      <router-link to="/logout">Logout</router-link>
-      <!-- </div> -->
+      <div v-if="isLoggedIn()">
+        <router-link to="/dashboard">Dashboard</router-link>
+        |
+        <router-link to="/resumeshow">My Resume</router-link>
+        |
+        <router-link to="/logout">Logout</router-link>
+      </div>
     </div>
     <router-view />
   </div>

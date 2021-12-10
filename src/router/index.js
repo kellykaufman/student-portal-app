@@ -19,12 +19,12 @@ const routes = [
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
   {
-    path: "/dashboard/:id",
+    path: "/dashboard",
     name: "Dashboard",
     component: Dashboard,
   },
   {
-    path: "/resumeshow/:id",
+    path: "/resumeshow",
     name: "ResumeShow",
     component: ResumeShow,
   },
