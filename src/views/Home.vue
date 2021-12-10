@@ -46,7 +46,7 @@ export default {
       if (localStorage.getItem("jwt")) {
         return true;
       } else {
-        // this.$router.push("/login"); // commented out for now
+        // this.$router.push("/login");
       }
     },
   },

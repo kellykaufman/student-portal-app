@@ -20,6 +20,7 @@ export default {
     };
   },
   created: function () {
+    this.isLoggedIn();
     this.dashboardStudent();
   },
   methods: {
@@ -28,6 +29,13 @@ export default {
         this.student = response.data;
         // console.log("all students", this.student);
       });
+    },
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        // this.$router.push("/login");
+      }
     },
   },
 };
