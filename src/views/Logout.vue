@@ -11,6 +11,7 @@ export default {
     delete axios.defaults.headers.common["Authorization"];
     // remove jwt from browser local storage
     localStorage.removeItem("jwt");
+    localStorage.removeItem("student_id");
     // redirect to home
     this.$router.push("/login");
   },

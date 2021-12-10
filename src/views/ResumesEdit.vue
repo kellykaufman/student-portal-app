@@ -213,10 +213,10 @@ export default {
   },
   created: function () {
     axios.get(`/students/${this.$route.params.id}`).then((response) => {
-      this.currentExperienceParams = response.data.experience;
-      this.currentEducationParams = response.data.education;
-      this.currentSkillParams = response.data.skill;
-      this.currentCapstoneParams = response.data.capstone;
+      this.currentExperienceParams = response.data.experiences;
+      this.currentEducationParams = response.data.educations;
+      this.currentSkillParams = response.data.skills;
+      this.currentCapstoneParams = response.data.capstones;
       console.log("Here you go", response.data);
     });
   },
