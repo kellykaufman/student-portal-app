@@ -227,7 +227,7 @@ export default {
       axios
         .patch("/experiences/" + this.experience.id)
         .then((response) => {
-          this.$router.push(`/experience/${response.data.id}`);
+          console.log(response.data);
         })
         .catch((error) => console.log(error.response));
     },
@@ -235,7 +235,7 @@ export default {
       axios
         .patch("/education/" + this.education.id)
         .then((response) => {
-          this.$router.push(`/experience/${response.data.id}`);
+          console.log(response.data);
         })
         .catch((error) => console.log(error.response));
     },
@@ -243,7 +243,7 @@ export default {
       axios
         .patch("/skills/" + this.skill.id)
         .then((response) => {
-          this.$router.push(`/experience/${response.data.id}`);
+          console.log(response.data);
         })
         .catch((error) => console.log(error.response));
     },
@@ -251,7 +251,7 @@ export default {
       axios
         .patch("/capstones/" + capstone.id)
         .then((response) => {
-          this.$router.push(`/experience/${response.data.id}`);
+          console.log(response.data);
         })
         .catch((error) => console.log(error.response));
     },
