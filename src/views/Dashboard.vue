@@ -1,6 +1,6 @@
 <template>
   <div class="students-dashboard">
-    <img :src="student.photo" :alt="student.id" />
+    <img v-bind:src="student.photo" :alt="student.id" align="left" />
 
     <h1>{{ student.first_name }} {{ student.last_name }}</h1>
     <p>{{ student.email }}</p>
@@ -9,6 +9,7 @@
     <p>{{ student.linkedin }}</p>
     <p>{{ student.github }}</p>
     <p>{{ student.website }}</p>
+    <p>{{ student.twitter }}</p>
   </div>
 </template>
 
