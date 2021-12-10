@@ -30,7 +30,7 @@ const routes = [
     component: ResumeShow,
   },
   {
-    path: "/resumesedit",
+    path: "/resumes/edit",
     name: "ResumesEdit",
     component: ResumesEdit,
   },
